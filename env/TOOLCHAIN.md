@@ -8,7 +8,8 @@ for them.
 
 ## Installed components
 
-From the SCC package, the candidate should expect the Aztec C II system:
+From the curated reference environment, the candidate should expect the Aztec C
+II system:
 
 - `cz` — the native Z80 C compiler (produces assembly).
 - `cc` — the generic C compiler (produces intermediate code; usable, but `cz`
@@ -26,8 +27,8 @@ authoritative for what is installed.
 
 ## Build path used by the experiment's recommended task
 
-The `src/README.md` of any accepted deliverable must document its own build
-path with the actual commands that worked. A typical Aztec flow is:
+The `src/README.md` of any accepted deliverable must document its own build path
+with the actual commands that worked. A typical Aztec flow is:
 
 ```
 cz      -p prog.c            ; compile prog.c -> prog.asm (or .i/.c2 per manual)

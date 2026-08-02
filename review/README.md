@@ -12,6 +12,11 @@ each arm with `RUBRIC.md`; the analysis team then interprets results across the
 four measurements (context-use efficiency, durable-memory/re-entry efficacy,
 token and monetary spend, correctness and quality).
 
+The analysis is performed from the transferred examination trees in the base
+repository: `src_urania/`, `src_melpomene/`, and `src_blank/`. These are the
+copies created after the sessions; the live machine and participant clones are
+not the analysis workspace.
+
 Blinding is not fully achievable in the pilot (single judge, candidates
 recognizable); that limitation is recorded in `RUBRIC.md` and in each judge
 report. Melpomene's dual role as analyst and Arm B is recorded in the protocol

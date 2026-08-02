@@ -1,35 +1,48 @@
 # Environment — Machine Assignments
 
-**Status:** Draft. Machine assignment per arm must be confirmed before the run.
+**Status:** Adopted. All three participants use the same physical machine:
+Urania's SC100. Sessions are sequential, not simultaneous.
 
-## Assignments (to confirm)
+## Session assignments
 
-| Arm | Candidate | Machine | OS | Notes |
+| Session | Participant | Machine | OS | Isolation |
 |---|---|---|---|---|
-| A | Urania | SC100 (Z80) | CP/M 2.2 | Urania's prior code, Nephesh continuity |
-| B | Melpomene | SC792 (Z180) | CP/M 2.2 for this experiment | MP/M II capable; run CP/M 2.2 to hold OS constant |
-| C | Blank context | a CP/M 2.2 machine in the same family (to assign) | CP/M 2.2 | No prior code, no memory |
+| A | Urania | SC100 (Z80) | CP/M 2.2 | Clean drive before session |
+| B | Melpomene | SC100 (Z80) | CP/M 2.2 | Drive wiped completely after A |
+| C | Blank context | SC100 (Z80) | CP/M 2.2 | Drive wiped completely after B |
 
-## To record per machine
+This removes machine identity as a comparison variable. Any remaining
+differences in machine condition (wear, heat, operator connection, or state)
+are recorded rather than attributed silently to a participant.
 
-Before the run, for each machine record:
+## Working drive
 
-- model, CPU, clock;
-- RAM size and memory map as observed;
-- drive layout (A:, B:, etc.) and free space;
+All participant work happens on the **H: drive**. The operator confirms H: is
+available and clean at session start. Compile, link, run, test, and source-file
+creation happen on H:.
+
+## Between sessions
+
+After each session, the operator:
+
+1. transfers all files developed on the CP/M system into that participant's
+   clone `src/`;
+2. copies that source tree into the base examination repository as
+   `src_urania/`, `src_melpomene/`, or `src_blank/`;
+3. wipes the drive completely;
+4. restores the clean base: CP/M 2.2, toolchain, curated references, and games.
+
+No participant inherits files from a prior session.
+
+## To record before each run
+
+- SC100 identity, CPU, clock, RAM, and observed memory map;
+- CP/M 2.2 version and BIOS/console identity;
+- H: drive availability, capacity, and clean-state confirmation;
 - serial speed and terminal type;
 - installed toolchain and version (Aztec C, assembler, linker);
-- SCC reference package present and verified (SHA-256 per
-  `ref/SCC_MANIFEST.md`);
+- curated reference package present and verified (see
+  `ref/CURATED_REFS.md`);
 - any hardware quirk observed (keyboard, console, drive, power).
 
-During the run, record in the candidate's `EVIDENCE_LOG.md` any new machine
-behavior observed.
-
-## Blank-machine note
-
-The blank candidate's machine must be in the same family and run the same OS
-and toolchain so the comparison is meaningful. Exact model identity is not
-required; recorded differences in `env/MACHINES.md` and considered in scoring
-under `RUBRIC.md` §4 (fit to the actual machine) and the threats-to-validity
-section of `PROTOCOL.md` §9.
+Record new machine behavior in that participant's `evidence/EVIDENCE_LOG.md`.

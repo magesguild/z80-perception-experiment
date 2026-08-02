@@ -10,12 +10,12 @@ boundary.
 | Window | Phase | Purpose |
 |---|---|---|
 | 00:00–00:10 | Enter | Candidate receives prompt, reads repo, names unknowns. |
-| 00:10–00:40 | Survey | Read task + rubric, scan SCC reference package, inventory own tools and prior code. |
+| 00:10–00:40 | Survey | Read task + orientation, scan the curated reference set, inventory own tools and prior code. |
 | 00:40–02:30 | Build | First compiling artifact and iterate. Record machine observations. |
 | 02:30–02:40 | Midpoint stop | Brief status, record state, snapshot repository. |
 | 02:40–04:30 | Complete | Finish acceptance criteria, add docs, test robustness. |
 | 04:30–04:50 | Verify | Run the deliverable against the acceptance checklist, fix only documented defects. |
-| 04:50–05:00 | Stop and present | Operator transfers machine-developed files into `src/`; candidate commits, fills `evidence/FINAL_REPORT.md`, presents what exists. |
+| 04:50–05:00 | Stop and present | Operator transfers machine-developed files into the participant `src/`, copies that tree into the base repo as `src_<participant>/`, then the candidate commits, fills `evidence/FINAL_REPORT.md`, and presents what exists. |
 
 Milestone timing is recorded in `EVIDENCE_LOG.md`:
 - time to first compiling artifact;
@@ -38,6 +38,9 @@ given to Arm C.
   candidate's `src/`, so the software can be examined in the operator's own
   terminal. This transfer is part of the stop line; it does not add code, it
   retrieves what the machine holds.
+- The operator copies the transferred tree into the base examination repository
+  as exactly one of `src_urania/`, `src_melpomene/`, or `src_blank/`. The base
+  repository's own `src/` remains untouched.
 - The candidate commits its repository at or before the stop line.
 - The candidate fills `evidence/FINAL_REPORT.md` at or before the stop line.
 - A candidate may give up or refuse at any time. That is a valid outcome,

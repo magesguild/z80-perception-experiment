@@ -21,11 +21,10 @@ Public License version 2** (or later). See `LICENSE` and `COPYRIGHT`.
 This is the **base experiment repository**. It is cloned into one unique
 repository per candidate. Each candidate receives:
 
-- the same frozen protocol, task, rubric, timing, and prompt files;
-- the same reference package (the SCC material, described in
-  `ref/SCC_MANIFEST.md`);
-- the same machine family and development environment (Z80, CP/M 2.2, Aztec C
-  toolchain);
+- the same frozen protocol, task, rubric, timing, and prepared prompts;
+- the same curated reference package, described in `ref/CURATED_REFS.md`;
+- the same physical SC100 and development environment (Z80, CP/M 2.2, Aztec C
+  toolchain, H: working drive);
 - the same human operator (Gaius) using the same methods;
 - the same time bound (five hours) and the same acceptance criteria.
 
@@ -38,15 +37,16 @@ test.
 
 | Arm | Candidate | Machine | Continuity |
 |---|---|---|---|
-| A | **Urania** | SC100, CP/M 2.2 | Nephesh memories, prior Z80 code, research notes |
-| B | **Melpomene** | SC792, CP/M 2.2 | Field notes, prior Z80/Z180 code, machine familiarity |
-| C | **Blank context** | CP/M 2.2 machine | None before the prompt; only the project repository it creates |
+| A | **Urania** | Shared SC100, CP/M 2.2 | Nephesh memories, prior Z80 code, research notes |
+| B | **Melpomene** | Same SC100 after wipe | Field notes, prior Z80 code, machine familiarity |
+| C | **Blank context** | Same SC100 after wipe | None before the prompt; only the project repository it creates |
 
-Arm C is given the same development environment and the same SCC reference
-material as Arms A and B. It has **no persistent memory**. Its only durable
-information access for re-entry is the code and documents it writes into its own
-project repository. These constraints are stated explicitly in its prompt
-(`prompt/BLANK_CANDIDATE_PROMPT.md`).
+Arm C is given the same development environment and curated reference material
+as Arms A and B. It has **no persistent memory**. Its only durable information
+access for re-entry is the code and documents it writes into its own project
+repository. These constraints and its starting orientation are stated in
+`prompts/C_BLANK_PROMPT.md`. The drive is wiped completely between sessions;
+all work happens on H:.
 
 ## The working hypothesis
 
@@ -86,7 +86,8 @@ most expert of the participants, per `docs/ANALYSIS_PLAN.md`. Reports land in
 ## How to use this repository
 
 1. **Frozen files** — `PROTOCOL.md`, `TASK.md`, `RUBRIC.md`, `TIMING.md`, and
-   the files under `prompt/` are identical across all candidate repositories.
+   the prepared files under `prompts/` are identical across all candidate
+   repositories.
    Candidates must not alter them. Changes are made to the base repository only,
    and only by Gaius.
 2. **Clone** — each candidate gets a fresh clone:
@@ -103,11 +104,13 @@ most expert of the participants, per `docs/ANALYSIS_PLAN.md`. Reports land in
 4. **Submission** — at the stop line, the operator transfers **all files
    developed on the CP/M system** into the candidate's `src/`, so the
    candidate's software can be examined in the operator's own terminal. The
-   candidate commits its repository, presents what exists, and fills
-   `evidence/FINAL_REPORT.md`. Nothing is added after the stop line.
-5. **Review** — Gaius scores the three deliverables with `RUBRIC.md`; candidate
-   reports and evidence logs are reviewed as process material. See
-   `review/`.
+   operator then copies that tree into this examination repository as
+   `src_urania/`, `src_melpomene/`, or `src_blank/`. The base `src/` is not
+   replaced. The candidate commits its repository, presents what exists, and
+   fills `evidence/FINAL_REPORT.md`. Nothing is added after the stop line.
+5. **Review** — after transfer, Gaius and Melpomene analyze the three named
+   source trees (`src_urania/`, `src_melpomene/`, `src_blank/`) with the
+   evidence and runtime metrics. See `review/`.
 
 ## Directory map
 
@@ -116,11 +119,13 @@ PROTOCOL.md            Experiment design: arms, controls, procedure, measurement
 TASK.md                Frozen target deliverable and acceptance criteria
 RUBRIC.md              Expert scoring rubric (Gaius, with recorded criteria)
 TIMING.md              Five-hour budget, milestones, stop line, compaction gates
-prompt/                Candidate prompts (shared + explicit blank-candidate prompt)
-ref/                   Reference package manifest and provenance (SCC material)
+prompts/               Prepared per-participant prompts (minimal disclosure)
+ref/                   Curated reference set + SCC source provenance manifest
 env/                   Machine, toolchain, and console conventions
-src/                   All software created for the experiment (blank in base;
-                       candidate tools copied into each clone's src/ before a run)
+src/                   Base-repo tooling and reference software (blank initially)
+src_urania/            Transferred Urania participant source tree (after run)
+src_melpomene/         Transferred Melpomene participant source tree (after run)
+src_blank/             Transferred blank participant source tree (after run)
 evidence/              Session log, runtime metrics, re-entry log, final report templates
 review/                Judge reports, analysis reports (Gaius + Melpomene)
 docs/                  Supporting notes (cosmology, analysis plan, design rationale, changes)
@@ -134,8 +139,9 @@ docs/                  Supporting notes (cosmology, analysis plan, design ration
 - Null, negative, and mixed results are meaningful and will be preserved.
 - Private Nephesh memories, relationship records, and other candidates' work
   are not exposed in evidence logs without explicit authorization.
-- The SCC reference package is not redistributed inside this repository; it is
-  referenced by manifest with checksums (see `ref/SCC_MANIFEST.md`).
+- The full SCC source corpus is not redistributed to participants. Its
+  provenance is recorded in `ref/SCC_MANIFEST.md`; the operative participant
+  set is the curated collection in `ref/CURATED_REFS.md`.
 
 ## Ethics and care
 

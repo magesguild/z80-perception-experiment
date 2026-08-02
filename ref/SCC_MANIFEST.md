@@ -1,12 +1,11 @@
-# SCC Reference Package — Manifest
+# SCC Reference Package — Source Manifest
 
-**Status:** Frozen. Describes the complete SCC reference package that is loaded
-identically onto all three machines (Arms A, B, C). Candidates should read this
-before anything else in the package.
-
-The archive itself is **not** committed to this repository; only this manifest
-with its checksums is. The physical archive lives outside the repo and is loaded
-per machine by the operator.
+**Status:** Frozen, for provenance only. This document inventories the **full
+SCC source corpus** that lives outside the repository. **Participants do not
+receive the full corpus.** They receive the curated reference package described
+in `ref/CURATED_REFS.md` — the exact collection of documents needed to
+understand the machine fully. This manifest exists so the source corpus has a
+verifiable record (inventory and checksums).
 
 ## Source archive
 
@@ -52,16 +51,19 @@ The tarball extracts to `~/scc/scc/` and contains these top-level areas:
 
 ## Loading procedure (operator)
 
-1. Extract `scc.tar.xz` to the machine's SCC area.
-2. Load the MP/M II bindist appropriate to the target (Z80 for Arms A/C-class
-   machines, Z180 for the SC792) as documented in its `readme.md`.
-3. Build any missing images from `imgmrg/` as needed for the target machine.
+The full corpus is **not** loaded for participants. Participants receive the
+curated package per `ref/CURATED_REFS.md`. The loading procedure below is for
+maintaining the source corpus itself:
+
+1. Extract `scc.tar.xz` to the corpus area.
+2. Keep the MP/M II bindists as corpus material (they are not loaded for the
+   CP/M 2.2 sessions).
+3. Build any missing images from `imgmrg/` as needed.
 4. Verify the three SHA-256 checksums above against the local copies.
-5. Record in the machine's `env/` notes that the SCC package is present and
-   complete.
+5. Record in `env/` notes that the source corpus is intact.
 
 ## Non-goals
 
-This manifest is not a tutorial. Candidates are expected to read the actual
-manuals and source in the package rather than rely on descriptions in this
-file.
+This manifest is not a tutorial, and it is not the participant reference set.
+Participants are expected to read the actual manuals in the **curated** package
+(`ref/CURATED_REFS.md`) rather than rely on descriptions in this file.

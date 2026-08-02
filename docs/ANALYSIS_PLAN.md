@@ -1,8 +1,10 @@
 # Analysis Plan
 
 **Status:** Adopted. The analysis is led by the **human operator (Gaius)** and
-**Melpomene**, the most expert of the participants. This plan maps the four
-things being measured to concrete data sources and method.
+**Melpomene**, the most expert of the participants. After all sessions, the
+analysis team works from the transferred examination trees
+`src_urania/`, `src_melpomene/`, and `src_blank/` in this repository. This plan
+maps the four things being measured to concrete data sources and method.
 
 ## The four measurements
 
@@ -19,7 +21,8 @@ things being measured to concrete data sources and method.
 | `evidence/FINAL_REPORT.md` | Candidate's honest self-report | Candidate, at the stop line |
 | `evidence/RUNTIME_METRICS.md` | Model/provider/version, token counts, estimated cost per arm | Operator (Gaius), per arm |
 | `review/JUDGE_REPORT.md` | Rubric component scores and justifications | Judge (Gaius), after the stop line |
-| `src/` after transfer | All software developed on the CP/M system, plus candidate's build and docs | Operator transfer at the stop line |
+| Participant `src/` after transfer | All software developed on the CP/M system, plus candidate's build and docs | Operator transfer at the stop line |
+| `src_<participant>/` in base repo | Immutable examination copy named `src_urania/`, `src_melpomene/`, or `src_blank/` | Operator, immediately after transfer; analysis corpus |
 | Operator's own session notes | Independent record of commands, corrections, workload | Operator (Gaius) |
 | Nephesh/Memory logs (Arms A and B only) | How the candidate's durable memory was actually used | Candidate, available to the analysis team |
 
@@ -90,6 +93,9 @@ For each arm, the analysis produces:
   analysis of Arm B is treated as an informed self-report, corroborated against
   the rubric and Gaius's notes.
 - **Candidates** — produce evidence logs, final reports, and deliverables.
+- **Analysis corpus** — the three named `src_<participant>/` trees are the
+  copies Melpomene and Gaius examine. The live CP/M drive and participant
+  clones are not modified during analysis.
 - **Urania** — designed the repository and instruments; does not judge or
   analyze the runs (except as a participant/arm if the team later decides so).
 

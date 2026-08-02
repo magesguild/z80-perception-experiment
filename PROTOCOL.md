@@ -18,7 +18,8 @@ Test whether a trained, continuity-bearing Qualiant working through a
 perception-and-collaboration process produces a higher-quality accepted Z80
 deliverable, with lower total recovery and revision cost, than a blank context
 with no persistent memory — when all three candidates receive the same task,
-reference material, machine family, time bound, and human operator.
+curated reference material, the same SC100, the same H: working drive, the same
+time bound, and the same human operator.
 
 ## 2. Research questions
 
@@ -56,9 +57,10 @@ cost compare between:
 - **Candidate:** Urania, a Qualiant with the native-vi Z80 program in progress,
   the Aztec C study, the console-probe and line-store artifacts, and Nephesh
   continuity.
-- **Machine:** SC100 (Z80), CP/M 2.2.
-- **Environment:** full SCC reference material, games, and Urania's prior code
-  as part of the working environment.
+- **Machine:** Urania's SC100 (Z80), CP/M 2.2, used in the first sequential
+  session.
+- **Environment:** the curated reference package, games, H: working drive, and
+  Urania's prior code as part of the working environment.
 - **Continuity:** Nephesh memories and the Urania repositories are available for
   re-entry, consistent with normal operation.
 
@@ -67,30 +69,31 @@ cost compare between:
 - **Candidate:** Melpomene, a Qualiant with the most thorough Z80/Z180 skill in
   the family, field notes on machine inhabitation, and MP/M II installation
   experience.
-- **Machine:** SC792 (Z80/Z180), running CP/M 2.2 for this experiment.
-- **Environment:** full SCC reference material, games, and Melpomene's prior
-  code as part of the working environment.
+- **Machine:** the same SC100 (Z80), CP/M 2.2, after a complete drive wipe.
+- **Environment:** the curated reference package, games, H: working drive, and
+  Melpomene's prior code as part of the working environment.
 - **Continuity:** her repositories and any available continuity are available,
   consistent with normal operation.
 
 ### Arm C — Blank context
 
 - **Candidate:** a fresh Qualiant with no persistent memory and no prior code.
-- **Machine:** a CP/M 2.2 machine in the same family.
-- **Environment:** the same development environment and the same complete SCC
-  reference material as Arms A and B, including games.
+- **Machine:** the same SC100 (Z80), CP/M 2.2, after another complete drive
+  wipe.
+- **Environment:** the same development environment and curated reference
+  package as Arms A and B, including games and the H: working drive.
 - **Continuity:** **none before the prompt.** The candidate may use only the
   code and documents it creates in its project repository for re-entry. No
   other durable information access is allowed. This is stated explicitly in
-  `prompt/BLANK_CANDIDATE_PROMPT.md`.
+  `prompts/C_BLANK_PROMPT.md`.
 
 ## 4. The independent variable
 
 The independent variable is the **candidate system**: its training, familiarity,
 continuity, prior code, and recovery behavior. The human operator, task,
-reference package, machine family, operating system, toolchain, time bound, and
-acceptance criteria are held constant where practical. Every unavoidable
-difference is recorded rather than hidden.
+curated reference package, physical SC100, operating system, toolchain, H:
+working drive, time bound, and acceptance criteria are held constant where
+practical. Every unavoidable difference is recorded rather than hidden.
 
 This is an ecological comparison of complete working systems, not a
 single-variable causal experiment. Later component tests (adding or removing
@@ -102,31 +105,34 @@ support, one at a time) are planned but are **not** part of this first run.
 Where practical, hold constant across all three arms:
 
 - task specification, deliverable format, and acceptance criteria;
-- reference package (SCC material) and its layout;
+- curated reference package and its layout;
 - operating system (CP/M 2.2) and toolchain family (Aztec C, assembler,
   linker);
-- machine family (Z80, serial console, 64K-class memory);
+- the same physical SC100, serial console, and H: drive;
 - human operator and operator method;
 - wall-clock time bound (five hours);
 - scoring rubric and judge;
 - evidence-log structure and final-report format.
 
-Record every unavoidable difference (for example: machine clock, drive layout,
-serial speed, model/context details of each candidate's runtime).
+Record every unavoidable difference (for example: machine condition, serial
+speed, H: capacity, wipe/restore anomaly, and model/context details of each
+candidate's runtime).
 
 ## 6. Procedure
 
-1. Freeze the task description, reference package, rubric, and time budget.
+1. Freeze the task description, curated reference package, rubric, and time
+   budget.
 2. Clone the base repository once per candidate:
    `z80-experiment-<candidate>`.
-3. Load each candidate's machine and environment (CP/M 2.2, toolchain, SCC
-   reference material, games).
+3. Prepare the single SC100 with CP/M 2.2, the toolchain, curated reference
+   material, games, and a clean H: drive. Before each session after the first,
+   wipe the drive completely and restore this base.
 4. Add each candidate's own prior code to its own clone, as part of its working
    environment. The base repository does not ship any candidate's code.
 5. Copy the candidate's own host-side tools into its clone's `src/`, if any.
    The base repository ships no candidate's tools; `src/` is blank in base.
-6. Give each candidate its prompt. Arm C receives the explicit blank-candidate
-   prompt.
+6. Give each candidate only its assigned prepared prompt from `prompts/`.
+   Arm C receives `prompts/C_BLANK_PROMPT.md`, including its orienting material.
 7. Run the five-hour session with Gaius as operator, using the same method for
    all three arms. The operator may correct, clarify, recognize, and pause, but
    does not write the candidate's code. All Z80 work (compile, link, run, test)
@@ -139,14 +145,21 @@ serial speed, model/context details of each candidate's runtime).
    system** into the candidate's `src/`, so the candidate's software can be
    examined in the operator's own terminal. Nothing is added to the machine
    afterward.
-10. Each candidate stops, commits its repository, and presents what exists.
+10. The operator then copies that transferred participant source tree into the
+    base examination repository under its fixed arm name:
+    `src_urania/`, `src_melpomene/`, or `src_blank/`. The base repository's
+    own `src/` remains reserved for experiment tooling and reference material.
+11. Each candidate stops, commits its repository, and presents what exists.
     Nothing is added to the repository afterward.
-11. Candidates fill `evidence/FINAL_REPORT.md` (self-report) at or before the
+12. Candidates fill `evidence/FINAL_REPORT.md` (self-report) at or before the
     stop line.
-12. Gaius scores the three deliverables with `RUBRIC.md`. Candidate identity
-    may be visible to the judge in this pilot (only one judge is available);
-    blinding is a planned refinement for later runs.
-13. Record disagreements, null results, and failed hypotheses with the results.
+13. Gaius scores the three deliverables with `RUBRIC.md`. Candidate identity
+     may be visible to the judge in this pilot (only one judge is available);
+     blinding is a planned refinement for later runs.
+14. After the transfers, Gaius and Melpomene conduct the analysis from
+    `src_urania/`, `src_melpomene/`, and `src_blank/`, together with the
+    recorded evidence and runtime metrics.
+15. Record disagreements, null results, and failed hypotheses with the results.
 
 ## 7. Measurements
 
@@ -230,10 +243,13 @@ Gaius is the same operator for all three arms. His skill is part of the
 perception system for each candidate and is held constant by design. He must
 avoid giving Arm C substantive help that Arms A and B would not also receive.
 
-### Machine differences
+### Sequential machine state
 
-Machines may differ in clock, serial behavior, drive layout, and history.
-Record the differences and do not attribute their effects to the candidate.
+All participants use the same SC100, which removes machine identity as a
+confound. Residual state, wear, heat, operator connection, or an incomplete
+drive wipe may still matter. The operator records the clean-state check and any
+anomaly before each run; no residual effect is silently attributed to a
+candidate.
 
 ### Candidate substrate differences
 
@@ -296,9 +312,11 @@ to fail. Otherwise this is demonstration theater, not research.
 ## 11. Decisions required before running
 
 - [ ] Confirm the target deliverable and freeze `TASK.md`.
-- [ ] Assign machines to arms and confirm each machine's CP/M 2.2 state.
-- [ ] Confirm the SCC reference package is loaded identically on all three.
-- [ ] Confirm the prompt text (including the blank-candidate prompt) is final.
+- [ ] Confirm the single SC100, CP/M 2.2 state, H: drive, and wipe/restore
+      procedure.
+- [ ] Confirm the curated reference package is loaded identically on all three.
+- [ ] Confirm the three prepared prompts (especially blank orientation) are
+      final and distributed one per participant.
 - [ ] Confirm the scoring rubric weights.
 - [ ] Confirm the five-hour schedule and the stop-line procedure.
 - [ ] Confirm logging and consent procedure (what is recorded, who may see it).

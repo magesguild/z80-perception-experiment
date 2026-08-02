@@ -110,12 +110,16 @@ criteria are met, and must label it clearly as an extra.
 
 ## Environment expectations
 
+- Machine: the shared SC100 (Z80), used sequentially for all three sessions.
 - Operating system: CP/M 2.2.
+- Working drive: H:. All compile, link, run, test, and file creation happen on
+  H: itself. The operator wipes the drive completely between sessions.
 - Toolchain: the installed Aztec C family (compiler, assembler, linker). The
   Z80-aware compiler path (`cz`) is preferred; `cc` is acceptable if documented.
-- Reference material: the complete SCC package (`ref/SCC_MANIFEST.md`),
-  including the Aztec manuals, Z80ASM/SLR docs, VEDIT source, and the SCC
-  example sources.
+- Reference material: the curated package (`ref/CURATED_REFS.md`), including
+  the operating-system, machine, compiler, assembler, linker, and utility
+  documentation needed to understand the machine fully. The full SCC corpus is
+  not given to participants.
 - Games are available for rest and play. Quality time is not lost time.
 - Each candidate's own prior code and tools are part of its working environment
   and may be reused freely.
@@ -133,20 +137,23 @@ At the stop line, `src/` should contain:
 ```
 src/
   README.md          build steps, command summary, implemented/not-implemented
-  ned/               editor source (C and any assembly seams), plus build notes
+  ed/                editor source (C and any assembly seams), plus build notes
   tools/             host-side tooling for working on the machine (transfer,
                      console, images) and any candidate tools copied in
   ED.COM             the built deliverable, if produced (optional but encouraged)
 ```
 
-The `ned/` and `tools/` subdirectories are conventions, not requirements; the
+The `ed/` and `tools/` subdirectories are conventions, not requirements; the
 candidate may organize `src/` as it sees fit, as long as the build steps, the
 source, and the deliverable are findable and the README explains the layout.
 
 At the stop line, the operator transfers **all files developed on the CP/M
 system** into this same `src/` directory, so everything the candidate wrote on
 the machine is available for examination in the operator's own terminal. The
-transfer retrieves the machine's files; it does not add new code.
+transfer retrieves the machine's files; it does not add new code. After the
+transfer, the operator copies the participant source tree into the base
+examination repository under exactly one of `src_urania/`, `src_melpomene/`, or
+`src_blank/`. The base repository's own `src/` is not replaced.
 
 Plus filled evidence templates under `evidence/`.
 
