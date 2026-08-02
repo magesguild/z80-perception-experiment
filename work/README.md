@@ -8,7 +8,7 @@ work/
   README.md          build steps, command summary, implemented/not-implemented
   src/               editor source (C and any assembly seams)
   build/             submit scripts (.SUB) and any build notes
-  NED.COM            the built deliverable, if produced (optional but encouraged)
+  ED.COM             the built deliverable, if produced (optional but encouraged)
 ```
 
 The base repository ships only this README and an empty `src/` and `build/`

@@ -12,7 +12,7 @@ This is your honest self-report; it is evidence, not marketing.
 
 ## Deliverable state
 
-- Deliverable: `NED.COM` (or per task) — exists / does not exist.
+- Deliverable: `ED.COM` (or per task) — exists / does not exist.
 - Which acceptance criteria from `TASK.md` are met? (list each and its state)
 - Which are not met, and why?
 - What extra features were added, if any (labeled as extras)?

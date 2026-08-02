@@ -45,7 +45,7 @@ the machine.
 - Source style: conservative K&R C (this is 1983 Aztec C; modern C89/C99
   conveniences do not exist here).
 - Text files: CP/M text files (records padded with Control-Z at EOF).
-- Executable name: the deliverable is `NED.COM` per `TASK.md`.
+- Executable name: the deliverable is `ED.COM` per `TASK.md`.
 
 ## Known friction points
 
