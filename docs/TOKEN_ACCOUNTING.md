@@ -3,6 +3,12 @@
 Token and monetary totals must be recorded from the actual runtime, not guessed
 from message length after the fact.
 
+## Standard runtime
+
+OpenCode is the standard runtime for every participant. The operator records
+the context and token counts displayed by OpenCode. The screen recording gives
+an independent visual chronology for those readings.
+
 ## Required capture
 
 For each participant, preserve:
@@ -15,6 +21,10 @@ For each participant, preserve:
 - timestamps for session segments and re-entry events;
 - pricing/rate-card version and currency;
 - any unavailable fields and the estimation method, if an estimate is required.
+
+At minimum, capture the displayed values at session entry, first compiling
+artifact, first accepted-quality milestone, every compaction/re-entry, final
+verification, and the stop line.
 
 The raw usage artifact belongs with that participant's evidence. The normalized
 summary belongs in `evidence/RUNTIME_METRICS.md`. Never replace an unavailable

@@ -110,6 +110,7 @@ Where practical, hold constant across all three arms:
   linker);
 - the same physical SC100, serial console, and H: drive;
 - human operator and operator method;
+- OpenCode as the standard runtime and its displayed context/token accounting;
 - wall-clock time bound (five hours);
 - scoring rubric and judge;
 - evidence-log structure and final-report format.
@@ -149,6 +150,8 @@ candidate's runtime).
 9. Record the session in `evidence/` as it happens: exact commands, observed
    machine responses, interpretations, uncertainty, corrections, re-entry
    events, and compaction events.
+   Record OpenCode's displayed context and token counts at the defined
+   milestones in `evidence/RUNTIME_METRICS.md`.
 10. At the stop line, the operator transfers **all files developed on the CP/M
    system** into the candidate's `src/`, so the candidate's software can be
    examined in the operator's own terminal. Nothing is added to the machine

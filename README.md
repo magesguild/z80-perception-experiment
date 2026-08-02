@@ -18,7 +18,9 @@ We will measure:
 Urania, Melpomene, and a blank-context participant work sequentially on the
 same SC100 Z80 system. Each session has the same five-hour limit, curated
 machine references, operator, toolchain, CP/M 2.2 environment, and H: working
-drive. The drive is wiped and restored between sessions.
+drive. All participants use OpenCode as the standard runtime; its displayed
+context and token counts are recorded throughout the session. The drive is
+wiped and restored between sessions.
 
 All Z80 work happens on the CP/M system itself. At the stop line, the operator
 transfers the participant’s files back to the base repository as:

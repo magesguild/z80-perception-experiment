@@ -14,11 +14,26 @@ spend) and feeds measurements 1 and 2 (context-use efficiency, re-entry cost).
 
 ## Runtime substrate
 
+- Runtime: OpenCode
 - Model:
 - Provider:
 - Version / snapshot:
 - Context window size (if known):
 - Notes (temperature, sampling, any runtime flags):
+
+## OpenCode display snapshots
+
+Record the values visible in OpenCode at each milestone. The screen recording
+should make these readings independently reviewable.
+
+| Event | Context displayed | Input/token count displayed | Output/token count displayed | Timestamp | Notes |
+|---|---:|---:|---:|---|---|
+| Session entry | | | | | |
+| First compiling artifact | | | | | |
+| First accepted-quality milestone | | | | | |
+| Each compaction/re-entry | | | | | |
+| Final verification | | | | | |
+| Stop line | | | | | |
 
 ## Token accounting
 

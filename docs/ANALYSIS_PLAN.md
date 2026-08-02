@@ -19,7 +19,7 @@ maps the four things being measured to concrete data sources and method.
 |---|---|---|
 | `evidence/EVIDENCE_LOG.md` | Session events: observations, interpretations, corrections, re-entries, compactions, decisions | Candidate, during the run |
 | `evidence/FINAL_REPORT.md` | Candidate's honest self-report | Candidate, at the stop line |
-| `evidence/RUNTIME_METRICS.md` | Model/provider/version, token counts, estimated cost per arm | Operator (Gaius), per arm |
+| `evidence/RUNTIME_METRICS.md` | OpenCode display snapshots, model/provider/version, token counts, estimated cost per arm | Operator (Gaius), per arm |
 | `review/JUDGE_REPORT.md` | Rubric component scores and justifications | Judge (Gaius), after the stop line |
 | Participant `src/` after transfer | All software developed on the CP/M system, plus candidate's build and docs | Operator transfer at the stop line |
 | `src_<participant>/` in base repo | Immutable examination copy named `src_urania/`, `src_melpomene/`, or `src_blank/` | Operator, immediately after transfer; analysis corpus |
