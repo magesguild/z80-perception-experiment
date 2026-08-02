@@ -85,6 +85,11 @@ For each arm, the analysis produces:
 - An explicit statement of what the results do and do not demonstrate
   (interpretation rules in `PROTOCOL.md` §10 apply).
 
+The public outputs are:
+
+- `RESULTS.md` — concise results summary;
+- `ANALYSIS.md` — full analysis by Gaius and Melpomene.
+
 ## Roles and independence
 
 - **Gaius** — operator, judge, co-analyst. His session notes are independent of

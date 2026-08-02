@@ -33,7 +33,9 @@ about the experiment to perform the task faithfully.
    curated reference package `ref/CURATED_REFS.md`, games).
 2. Confirm the participant's clone is ready and its own tools are in its
    `src/`.
-3. Paste the assigned prompt at session start.
+3. Remove the other prompt files from the participant workspace. Keep the full
+   `prompts/` directory operator-side; the participant receives only its
+   assigned prompt, pasted or injected at session start.
 4. After the stop line and transfer, wipe the drive before the next session.
 
 After a participant's files have been transferred into its clone's `src/`, the

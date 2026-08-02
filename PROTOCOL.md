@@ -124,9 +124,13 @@ candidate's runtime).
    budget.
 2. Clone the base repository once per candidate:
    `z80-experiment-<candidate>`.
+   Before handing the workspace to the participant, remove the unassigned
+   prompt files. The participant workspace contains only its assigned prompt;
+   the complete `prompts/` directory remains operator-side material.
 3. Prepare the single SC100 with CP/M 2.2, the toolchain, curated reference
    material, games, and a clean H: drive. Before each session after the first,
    wipe the drive completely and restore this base.
+   Fill `evidence/SESSION_BASELINE.md` for each session.
 4. Add each candidate's own prior code to its own clone, as part of its working
    environment. The base repository does not ship any candidate's code.
 5. Copy the candidate's own host-side tools into its clone's `src/`, if any.
@@ -148,7 +152,9 @@ candidate's runtime).
 10. The operator then copies that transferred participant source tree into the
     base examination repository under its fixed arm name:
     `src_urania/`, `src_melpomene/`, or `src_blank/`. The base repository's
-    own `src/` remains reserved for experiment tooling and reference material.
+     own `src/` remains reserved for experiment tooling and reference material.
+     Fill `evidence/TRANSFER_MANIFEST.md` and preserve the transfer inventory or
+     checksums.
 11. Each candidate stops, commits its repository, and presents what exists.
     Nothing is added to the repository afterward.
 12. Candidates fill `evidence/FINAL_REPORT.md` (self-report) at or before the

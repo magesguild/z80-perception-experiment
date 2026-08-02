@@ -22,6 +22,9 @@ spend) and feeds measurements 1 and 2 (context-use efficiency, re-entry cost).
 
 ## Token accounting
 
+Preserve raw runtime usage records alongside this summary. See
+`docs/TOKEN_ACCOUNTING.md`. Do not silently convert unavailable values to zero.
+
 If the runtime exposes token usage, record per session segment:
 
 | Segment | Input tokens | Output tokens | Notes |

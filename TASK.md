@@ -172,7 +172,7 @@ and objectively checkable against a predeclared requirements checklist.
 ## Decision record
 
 - **2026-08-02:** Initial task proposal written by Urania. Recommended task:
-  native CP/M line editor (working title `NED.COM`).
+  native CP/M line editor.
 - **2026-08-02:** **CONFIRMED by Gaius.** The first task is **`ED.COM`** — a
   native CP/M ED-family line editor, named for the classic CP/M editor whose
   role it fills. Name changed from the proposed working title; scope remains a
