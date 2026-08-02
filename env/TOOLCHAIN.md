@@ -14,9 +14,9 @@ II system:
 - `cz` — the native Z80 C compiler (produces assembly).
 - `cc` — the generic C compiler (produces intermediate code; usable, but `cz`
   is preferred for Z80 work).
-- `as` — assembler (the manual's `as` line; see the SLR notes if Z80ASM/SLRNK
-  are used instead).
-- `ln` — linker (SLRNK or Aztec's linker; see manual).
+- `as` — optional assembler (not required for the HMAN task).
+- `ln` — optional separate linker path; use only if the observed Aztec C build
+  requires it.
 - Library files (the `.LIB` files in the Aztec distribution, e.g., `aztec.lib`
   or similar per manual) for the C runtime and console/file I/O.
 
@@ -27,8 +27,8 @@ authoritative for what is installed.
 
 ## Build path used by the experiment's recommended task
 
-The `src/README.md` of any accepted deliverable must document its own build path
-with the actual commands that worked. A typical Aztec flow is:
+The `src/README.md` of any accepted deliverable must document its own C build
+path with the actual commands that worked. A typical Aztec flow is:
 
 ```
 cz      -p prog.c            ; compile prog.c -> prog.asm (or .i/.c2 per manual)
@@ -46,7 +46,8 @@ the machine.
 - Source style: conservative K&R C (this is 1983 Aztec C; modern C89/C99
   conveniences do not exist here).
 - Text files: CP/M text files (records padded with Control-Z at EOF).
-- Executable name: the deliverable is `ED.COM` per `TASK.md`.
+- Executable name: the deliverable is `HMAN.COM` per `TASK.md`; `ED.COM` is the
+  source editor used during development.
 
 ## Known friction points
 

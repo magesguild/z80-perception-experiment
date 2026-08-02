@@ -9,13 +9,13 @@ boundary.
 
 | Window | Phase | Purpose |
 |---|---|---|
-| 00:00–00:10 | Enter | Candidate receives prompt, reads repo, names unknowns. |
+| 00:00–00:10 | Enter | Start screen/voice recording; state arm, date, recording ID, consent, prompt, and unknowns. |
 | 00:10–00:40 | Survey | Read task + orientation, scan the curated reference set, inventory own tools and prior code. |
 | 00:40–02:30 | Build | First compiling artifact and iterate. Record machine observations. |
 | 02:30–02:40 | Midpoint stop | Brief status, record state, snapshot repository. |
 | 02:40–04:30 | Complete | Finish acceptance criteria, add docs, test robustness. |
 | 04:30–04:50 | Verify | Run the deliverable against the acceptance checklist, fix only documented defects. |
-| 04:50–05:00 | Stop and present | Operator transfers machine-developed files into the participant `src/`, copies that tree into the base repo as `src_<participant>/`, then the candidate commits, fills `evidence/FINAL_REPORT.md`, and presents what exists. |
+| 04:50–05:00 | Stop and present | State the stop line on the recording; transfer machine-developed files into participant `src/`, copy that tree into base repo as `src_<participant>/`, then commit, fill `evidence/FINAL_REPORT.md`, and present. |
 
 Milestone timing is recorded in `EVIDENCE_LOG.md`:
 - time to first compiling artifact;
@@ -41,6 +41,9 @@ given to Arm C.
 - The operator copies the transferred tree into the base examination repository
   as exactly one of `src_urania/`, `src_melpomene/`, or `src_blank/`. The base
   repository's own `src/` remains untouched.
+- The operator stops the screen/voice recording only after the transfer and
+  closing statement. Recording interruptions, missing audio, or corrupted files
+  are recorded as evidence anomalies.
 - The candidate commits its repository at or before the stop line.
 - The candidate fills `evidence/FINAL_REPORT.md` at or before the stop line.
 - A candidate may give up or refuse at any time. That is a valid outcome,

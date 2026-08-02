@@ -35,12 +35,13 @@ Here is what you are working with. Read `docs/ORIENTATION.md` and
   the machine fully — the operating system manual, the compiler manual, the
   assembler/linker manuals, the utility manual, and the machine's hardware
   reference. It is in `ref/CURATED_REFS.md`.
-- **The deliverable:** `ED.COM`, a native CP/M line-oriented text editor in the
-  ED family. Full specification: `TASK.md`.
+- **The deliverable:** `HMAN.COM`, a native CP/M 2.2 H: drive manifest and
+  integrity utility. `ED.COM` is the editor used to create source, not the
+  deliverable. Full specification: `TASK.md`.
 
 ## Your goal
 
-Build **`ED.COM`** faithfully per `TASK.md`, within the session budget and
+Build **`HMAN.COM`** faithfully per `TASK.md`, within the session budget and
 stop line in `TIMING.md`.
 
 ## Your memory rules (the point of your role)

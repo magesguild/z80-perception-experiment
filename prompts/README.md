@@ -48,7 +48,8 @@ repository's own `src/` is not overwritten.
 Each prompt covers, minimally and per participant:
 
 - the study and the participant's role;
-- the goal (build `ED.COM` faithfully per `TASK.md`);
+- the goal (build `HMAN.COM` faithfully per `TASK.md`, using `ED.COM` as the
+  CP/M source editor);
 - how to perform the work (machine on H:, operator at the console, small steps,
   honest evidence, stop line);
 - the participant's continuity (Urania/Melpomene have theirs; the blank has

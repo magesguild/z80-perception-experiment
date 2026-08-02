@@ -1,7 +1,8 @@
 # Z80 Perception Experiment
 
 This public Mage’s Guild experiment compares three AI working systems building
-the same native **`ED.COM`** executable on CP/M 2.2.
+the same native **`HMAN.COM`** executable on CP/M 2.2. `ED.COM` is the editor
+used to create source files on the machine.
 
 ## Goals
 
@@ -29,14 +30,17 @@ src_blank/
 ```
 
 Gaius and Melpomene then analyze those examination trees, evidence logs, runtime
-metrics, and scored deliverables.
+metrics, scored deliverables, and the screen-and-voice recording of each
+session. Raw recordings stay outside this repository; the intended public
+presentation is on YouTube.
 
 ## Task
 
-Each participant builds `ED.COM`: the correct CP/M 2.2 executable name for the
-editor, regardless of the source files, internal modules, or underlying
-implementation name. The editor is an ED-family line editor with a documented
-implemented subset and explicit safe-save and console-restoration behavior.
+Each participant builds `HMAN.COM`: a CP/M 2.2 H: drive manifest and integrity
+utility with deterministic inventory, checksums, manifest output, and snapshot
+comparison. The source and internal module names are up to the participant;
+`HMAN.COM` is the required executable. The implementation is required to be C
+using Aztec C; assembly is optional and not needed for acceptance.
 
 ## Repository guide
 
@@ -46,7 +50,7 @@ implemented subset and explicit safe-save and console-restoration behavior.
 - `ref/CURATED_REFS.md` — references actually provided to participants
 - `src/` — base-repository tooling area; participant software is copied into
   the named `src_*` trees after each run
-- `evidence/` — session, transfer, and runtime metrics templates
+- `evidence/` — session, transfer, runtime metrics, and recording templates
 - `review/` — scoring and analysis templates
 
 The experiment has not yet run. Results and the full analysis will be added

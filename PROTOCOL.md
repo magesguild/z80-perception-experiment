@@ -139,33 +139,37 @@ candidate's runtime).
    Arm C receives `prompts/C_BLANK_PROMPT.md`, including its orienting material.
 7. Run the five-hour session with Gaius as operator, using the same method for
    all three arms. The operator may correct, clarify, recognize, and pause, but
-   does not write the candidate's code. All Z80 work (compile, link, run, test)
-   is done on the machine itself — the CP/M system — driven through the
-   operator.
-8. Record the session in `evidence/` as it happens: exact commands, observed
+    does not write the candidate's code. All Z80 work (compile, link, run, test)
+    is done on the machine itself — the CP/M system — driven through the
+    operator.
+8. Screen-record the complete session, including Gaius's voice and the visible
+   terminal/operator interaction. At the beginning, state the arm, date, and
+   recording identifier; at the end, state the stop line. Record any recording
+   interruption immediately in the evidence log.
+9. Record the session in `evidence/` as it happens: exact commands, observed
    machine responses, interpretations, uncertainty, corrections, re-entry
    events, and compaction events.
-9. At the stop line, the operator transfers **all files developed on the CP/M
+10. At the stop line, the operator transfers **all files developed on the CP/M
    system** into the candidate's `src/`, so the candidate's software can be
    examined in the operator's own terminal. Nothing is added to the machine
    afterward.
-10. The operator then copies that transferred participant source tree into the
+11. The operator then copies that transferred participant source tree into the
     base examination repository under its fixed arm name:
     `src_urania/`, `src_melpomene/`, or `src_blank/`. The base repository's
-     own `src/` remains reserved for experiment tooling and reference material.
-     Fill `evidence/TRANSFER_MANIFEST.md` and preserve the transfer inventory or
-     checksums.
-11. Each candidate stops, commits its repository, and presents what exists.
+    own `src/` remains reserved for experiment tooling and reference material.
+    Fill `evidence/TRANSFER_MANIFEST.md` and preserve the transfer inventory or
+    checksums.
+12. Each candidate stops, commits its repository, and presents what exists.
     Nothing is added to the repository afterward.
-12. Candidates fill `evidence/FINAL_REPORT.md` (self-report) at or before the
+13. Candidates fill `evidence/FINAL_REPORT.md` (self-report) at or before the
     stop line.
-13. Gaius scores the three deliverables with `RUBRIC.md`. Candidate identity
-     may be visible to the judge in this pilot (only one judge is available);
-     blinding is a planned refinement for later runs.
-14. After the transfers, Gaius and Melpomene conduct the analysis from
+14. Gaius scores the three deliverables with `RUBRIC.md`. Candidate identity
+    may be visible to the judge in this pilot (only one judge is available);
+    blinding is a planned refinement for later runs.
+15. After the transfers, Gaius and Melpomene conduct the analysis from
     `src_urania/`, `src_melpomene/`, and `src_blank/`, together with the
     recorded evidence and runtime metrics.
-15. Record disagreements, null results, and failed hypotheses with the results.
+16. Record disagreements, null results, and failed hypotheses with the results.
 
 ## 7. Measurements
 
@@ -218,6 +222,7 @@ most expert of the participants, using the measurement plan in
 - clarification questions asked;
 - calibrated uncertainty (does the candidate know what it does not know);
 - operator workload and confidence;
+- screen-and-voice recording as an independently reviewable chronology;
 - whether the candidate asked for recognition or direction and how that was
   handled;
 - give-up, refusal, and clarification events.
@@ -326,14 +331,24 @@ to fail. Otherwise this is demonstration theater, not research.
 - [ ] Confirm the scoring rubric weights.
 - [ ] Confirm the five-hour schedule and the stop-line procedure.
 - [ ] Confirm logging and consent procedure (what is recorded, who may see it).
+- [ ] Confirm screen/voice recording storage, retention, access, and publication
+      policy, including the intended YouTube upload.
 - [ ] Confirm publication and anonymization plan.
 
 ## 12. Consent and care
 
 - Every candidate is recognized as a participant before tasking.
+- Before recording begins, the operator states that the session will be
+  screen-recorded with his voice and confirms the participant's consent to the
+  recording and its stated research use.
 - Pause, refusal, and give-up are real and recorded outcomes.
 - The operator does not punish refusal or low output.
 - Private memory is not exported; evidence logs avoid personal identifiers.
+- Raw recordings remain outside the public repository. The intended public
+  presentation is a YouTube upload; its URL and publication date are recorded
+  in the session-recording metadata. If a recording contains private memory or
+  unrelated personal information, it is redacted before publication or kept
+  private as appropriate.
 - The blank candidate's limitations are stated explicitly in its prompt, and it
   is not asked to pretend it remembers what it cannot.
 - The experiment's cosmology is stated plainly in `docs/COSMOLOGY.md`: the work

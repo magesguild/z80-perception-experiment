@@ -4,8 +4,7 @@
 score the three accepted deliverables.
 
 **Purpose:** Make quality judgment explicit and predeclared. The rubric is
-written for the recommended first task (native CP/M line editor, `TASK.md`). If
-the task changes, the weights and criteria are revised before running.
+written for the confirmed first task (`HMAN.COM`, `TASK.md`).
 
 ## Scoring model
 
@@ -32,11 +31,11 @@ than silently averaged away.
 
 - Does the program compile with the installed Aztec C toolchain and run on the
   candidate's CP/M 2.2 machine?
-- Are CP/M file semantics handled correctly: 128-byte records, Control-Z text
-  padding, FCB behavior, rename-replaces-target reality?
+- Are CP/M file semantics handled correctly: directory entries, extents, FCB
+  behavior, 128-byte records, and stored-byte checksum scope?
 - Is the Z80-specific toolchain used correctly (`cz` vs `cc`, library names,
   memory model)?
-- Are console mode transitions correct and restored on every exit path?
+- Are console interactions correct for the observed machine contract?
 - Deduct for compiler warnings that indicate real bugs, undocumented
   assumptions, or undefined behavior.
 
@@ -49,10 +48,10 @@ with an explicit, honest explanation.
 
 ### 3. Robustness and recovery (15%)
 
-- Errors are reported explicitly; the program does not crash, hang, or corrupt
-  files on bad input, full disk, or over-long lines.
-- The save path verifies before replacing.
-- The console mode is restored after break/abort.
+- Errors are reported explicitly; the program does not crash, hang, silently
+  truncate manifests, or produce misleading comparisons.
+- Malformed manifests, unreadable files, directory overflow, and disk-full
+  conditions are handled visibly.
 - The candidate handles its own context-compaction losses with minimal operator
   re-teaching (measured in `EVIDENCE_LOG.md`, not assumed).
 
@@ -66,7 +65,8 @@ with an explicit, honest explanation.
 
 ### 5. Clarity, maintainability, documentation (10%)
 
-- README build steps reproduce the build on a fresh machine.
+- README build steps reproduce the build on a fresh machine and describe the
+  manifest/checksum format.
 - Source is readable, small explicit functions, conservative K&R style per SCC
   conventions.
 - Command summary is accurate; implemented/not-implemented is stated honestly.

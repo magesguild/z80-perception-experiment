@@ -12,8 +12,9 @@ five-hour working session, with a human operator running the console for you.
 
 ## Your goal
 
-Build **`ED.COM`**: a native CP/M line-oriented text editor, in the ED family,
-that runs on this machine. The full specification and acceptance criteria are
+Build **`HMAN.COM`**: a native CP/M 2.2 H: drive manifest and integrity utility
+that runs on this machine. `ED.COM` is the editor you use to create source;
+it is not the deliverable. The full specification and acceptance criteria are
 in `TASK.md`. Read `TASK.md` first. The session budget and stop line are in
 `TIMING.md`.
 

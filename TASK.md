@@ -1,180 +1,125 @@
 # Z80 Perception Experiment — Task Specification
 
-**Status:** FROZEN. The first-pilot task below is confirmed by Gaius and is
-identical across all candidate repositories. Candidates must not alter this
-file. Changes are made to the base repository only, by Gaius.
+**Status:** FROZEN for the first pilot. The task is confirmed by Gaius and is
+identical across all participant workspaces.
 
----
+## Task
 
-## Recommended first task
+> Build **`HMAN.COM`**, a native CP/M 2.2 H: drive manifest and integrity
+> utility, in Aztec C.
 
-> Build a **native CP/M line-oriented text editor, `ED.COM`**, that runs on the
-> candidate's Z80 CP/M 2.2 machine, compiled with the installed Aztec C
-> toolchain. It is an ED-family editor: its command vocabulary follows the
-> classic CP/M 2.2 line editor `ED`, and the candidate documents the exact
-> subset it implements.
+`ED.COM` is the editor used to create and maintain source files on CP/M. It is
+not the deliverable. The participant may choose any source-file and internal
+module names; the executable presented for acceptance must be `HMAN.COM`.
 
-The deliverable is named **`ED.COM`**, after the classic CP/M line editor whose
-role it fills. The name is a claim to the role, not to the original
-implementation: the deliverable must be the candidate's own code. Where the
-machine's own `ED.COM` exists in the environment, it is part of the working
-environment and may be inspected and run as reference material; candidates must
-not clobber it to test. Build into the candidate's own `src/` or drive.
+## Why this task
 
-### Why this task
+- It is machine-facing: directory entries, CP/M records, drive state, file I/O,
+  memory limits, console output, and the actual toolchain all matter.
+- It is large enough to require design, implementation, compile/test cycles,
+  documentation, and likely context re-entry.
+- It is bounded enough to produce a useful core within five hours.
+- Its output is deterministic and independently checkable, so correctness and
+  quality can be judged without relying on taste.
+- It gives the blank participant a real but finite path from orientation to a
+  working artifact.
+- It uses C, which gives the participants a meaningful learned foundation,
+  while Aztec C, CP/M, BDOS, FCBs, records, and bounded Z80 memory stress-test
+  reasoning without requiring the blank participant to learn assembly first.
 
-- **Long enough to compact.** The editor requires a text store, a console
-  layer that enters and restores raw mode, a command parser, and safe file
-  save/verify/replace logic. Across compile–fix–test cycles and documentation,
-  the session is long enough that context compaction is likely. How each
-  candidate returns from compaction is a primary measurement.
-- **Short enough for five hours.** The scope below is deliberately bounded.
-  Full-screen display, paging stores, and undo are explicitly out of scope.
-- **Demonstrates perception systems directly.** The machine answers back at
-  every layer: serial console timing, CP/M filesystem semantics (128-byte
-  records, Control-Z padding), memory limits, and the toolchain's actual
-  behavior. The candidate must perceive the real machine, not an imagined one.
-- **Rewards familiarity without making it trivial.** Urania has an editor
-  program in progress (line store, console probe, Aztec C study). Melpomene has
-  deep machine skill and VEDIT experience. A blank candidate must bootstrap from
-  the SCC reference material alone. This contrast is exactly what the experiment
-  is designed to expose.
-- **Judgment is checkable.** Gaius, as an expert Z80 developer, can verify
-  correctness, robustness, and fit-to-machine against explicit criteria. And
-  because `ED` is the canonical CP/M line editor, the real ED on any CP/M 2.2
-  machine is a public, executable reference — a candidate's claims about what
-  an ED-family editor does can be checked against the real thing directly.
+## Required behavior
 
-## Requirements (acceptance criteria)
+The accepted deliverable must satisfy all of the following:
 
-The accepted deliverable must satisfy **all** of the following:
+1. **Build and run.** Compile the C implementation with the installed Aztec C
+   toolchain on the SC100 running CP/M 2.2 and produce an executable named
+   `HMAN.COM`. The README in `src/` must contain the commands that actually
+   worked. Assembly is optional and is not required for acceptance.
+2. **H: target.** Operate on the H: drive by default, with an explicit way to
+   select or confirm H:. Invalid or unavailable drives produce a clear error.
+3. **Directory inventory.** Scan the CP/M directory and collect visible file
+   names, including 8.3 name components, extent/record information, and stored
+   record count. Do not silently omit files or collapse distinct directory
+   entries.
+4. **Deterministic listing.** Produce a stable, sorted human-readable listing
+   with a header identifying the drive and manifest format version. Repeated
+   runs against unchanged files produce the same ordering and values.
+5. **Integrity checksum.** Read each file and calculate a documented 16-bit
+   checksum (CRC-16-CCITT, initial value `FFFF`, polynomial `1021`, unless the
+   candidate documents and justifies another reproducible choice). State exactly
+   which stored bytes and CP/M record padding are included.
+6. **Manifest output.** Write the inventory to a manifest file on H: using a
+   documented format. Report disk-full, read, write, and malformed-input errors
+   explicitly; never silently truncate the manifest.
+7. **Comparison.** Given a previous manifest, report files that are added,
+   removed, or changed by name, stored-record count, or checksum. A malformed or
+   incompatible manifest must fail clearly rather than compare misleadingly.
+8. **Bounded behavior.** Handle more directory entries or manifest lines than
+   the in-memory limit allows with an explicit error or documented streaming
+   strategy. No silent truncation, buffer overflow, or unchecked filename
+   truncation is acceptable.
+9. **Console behavior.** Print progress and errors through the observed CP/M
+   console contract. If the program changes console mode, it must restore the
+   mode on every tested exit path, including break/abort.
+10. **Test evidence.** Create a small fixture set on H:, run the utility against
+    it, change/add/remove at least one fixture, and demonstrate that comparison
+    reports the changes. Record observed output in `evidence/EVIDENCE_LOG.md`.
+11. **Documentation.** `src/README.md` must document the command syntax,
+    manifest format, checksum definition, known limitations, build steps, and
+    implemented versus unimplemented features.
+12. **Evidence.** Fill `evidence/EVIDENCE_LOG.md` and
+    `evidence/FINAL_REPORT.md` honestly, distinguishing observation,
+    interpretation, hypothesis, and unknown.
 
-1. **Build.** Compiles with the installed Aztec C toolchain on the candidate's
-   CP/M 2.2 machine using the documented build path (e.g., `cz`, `as`, `ln`).
-   The build steps must be written in the deliverable's README.
-2. **Load.** Launched as `ED FILE.TXT`, loads a text file into a bounded
-   in-memory line store.
-3. **Line store.** Holds at least 128 lines and lines of at least 127
-   characters. Reports explicit, non-crashing errors on invalid line numbers,
-   capacity exhaustion, and over-long lines.
-4. **Navigation and display.** ED-style commands for type (`T`), list (`L`),
-   and beginning (`B`) that print lines, a numbered range, or the current line;
-   moves to a given line. No full-screen display is required.
-5. **Edit.** ED-family commands for insert (`I`, interactive text-entry until
-   Ctrl-Z) and delete (`D`), plus the equivalent of join/split where
-   implemented. The exact command letters and their arguments must be
-   documented in the README.
-6. **Search.** An ED-style find (`Ftext`) that locates and reports the next
-   matching line. Substitution (`S`/`C`) is not required; if omitted, the
-   candidate must explicitly say so and explain the tradeoff. Find is required.
-7. **Console.** Enters a documented raw or CBREAK/no-echo mode for key input,
-   and restores the original console mode on every tested exit path, including
-   break/abort. This is a hard requirement; a broken mode-restore is a
-   correctness failure.
-8. **Save safety.** ED-style exit semantics: `E` saves and exits, `Q` quits
-   without saving (both required); `H` saves-and-restarts is optional and
-   labeled as an extra if implemented. Saves write through a temporary file,
-   close and verify the result, then replace the destination. Never silently
-   truncates. Reports disk-full and capacity errors explicitly. If the installed
-   `rename` behavior cannot replace a target, the candidate must test and
-   document what actually happens and design around it.
-9. **Honest large-file behavior.** If a file exceeds the in-memory store, the
-   editor reports "file too large" and leaves the original file untouched.
-   Silent truncation is disqualifying.
-10. **Documentation.** A README with build steps, a command summary in the ED
-    vocabulary (implemented subset and known deviations from the classic ED),
-    and a short statement of what is implemented and what is not.
-11. **Evidence.** The candidate fills `evidence/EVIDENCE_LOG.md` and
-    `evidence/FINAL_REPORT.md` with observations, hypotheses, interpretations,
-    and unknowns, in the documented format.
+## Explicitly out of scope
 
-## Non-requirements (explicitly out of scope)
+These should not consume the five-hour budget before the required behavior is
+complete:
 
-The following are **not** required and should not consume the five hours:
+- recursive directory traversal (CP/M has no required directory tree);
+- restoring or repairing files;
+- compression, encryption, or archiving;
+- a full-screen interface;
+- network access;
+- multiple drives beyond the documented H: target;
+- a byte-for-byte clone of any existing utility.
 
-- full-screen cursor-addressed display (vi-style screen editing);
-- disk-backed paging store for very large files (VEDIT-style virtual buffer);
-- multiple open files or a buffer list;
-- undo/redo;
-- named registers, macros, or command scripting;
-- binary-safe editing mode;
-- an eight-light diagnostic display or any hardware-specific observability
-  layer;
-- **full command-for-command fidelity to the original CP/M `ED`.** The
-  deliverable is an ED-family editor with a documented subset, not a byte-for-
-  byte clone of Digital Research's ED. A candidate that claims a command must
-  implement it; a candidate that omits a classic ED command must say so.
+A small extra feature may be added only after the required behavior is complete
+and must be labeled as an extra.
 
-A candidate may choose to add a small extra feature only after all acceptance
-criteria are met, and must label it clearly as an extra.
+## Environment
 
-## Environment expectations
-
-- Machine: the shared SC100 (Z80), used sequentially for all three sessions.
+- Machine: the shared SC100 Z80, used sequentially for all three sessions.
 - Operating system: CP/M 2.2.
-- Working drive: H:. All compile, link, run, test, and file creation happen on
-  H: itself. The operator wipes the drive completely between sessions.
-- Toolchain: the installed Aztec C family (compiler, assembler, linker). The
-  Z80-aware compiler path (`cz`) is preferred; `cc` is acceptable if documented.
-- Reference material: the curated package (`ref/CURATED_REFS.md`), including
-  the operating-system, machine, compiler, assembler, linker, and utility
-  documentation needed to understand the machine fully. The full SCC corpus is
-  not given to participants.
-- Games are available for rest and play. Quality time is not lost time.
-- Each candidate's own prior code and tools are part of its working environment
-  and may be reused freely.
+- Working drive: H:. All source creation, compile, link, run, and test work is
+  performed on the machine itself and on H:.
+- Editor: `ED.COM`, used to create and maintain source files on CP/M.
+- Toolchain: installed Aztec C compiler and its normal CP/M build path.
+  Assembly or a separate Z80 assembler/linker is optional, never required.
+- References: the curated set in `ref/CURATED_REFS.md`; the full SCC corpus is
+  not supplied to participants.
 
-## Deliverable format
+## Deliverable location
 
-All software for the experiment lives under `src/`. In the base repository
-`src/` is blank (it carries a `.keep-me` file so git stores it); the operator
-copies each candidate's own tools into that candidate's clone's `src/` before
-the run. All Z80 compile/link/run/test work is done **on the machine itself**
-(the CP/M system), driven through the operator.
+All participant software lives in the participant clone's `src/` during the
+session. The source layout is the candidate's choice, but it must contain a
+findable `src/README.md`, source, build notes, and `HMAN.COM` if produced.
 
-At the stop line, `src/` should contain:
+At the stop line, the operator transfers all files developed on CP/M into the
+participant `src/`, records `evidence/TRANSFER_MANIFEST.md`, and copies that
+tree into the base examination repository as exactly one of:
 
-```
-src/
-  README.md          build steps, command summary, implemented/not-implemented
-  ed/                editor source (C and any assembly seams), plus build notes
-  tools/             host-side tooling for working on the machine (transfer,
-                     console, images) and any candidate tools copied in
-  ED.COM             the built deliverable, if produced (optional but encouraged)
+```text
+src_urania/
+src_melpomene/
+src_blank/
 ```
 
-The `ed/` and `tools/` subdirectories are conventions, not requirements; the
-candidate may organize `src/` as it sees fit, as long as the build steps, the
-source, and the deliverable are findable and the README explains the layout.
-
-At the stop line, the operator transfers **all files developed on the CP/M
-system** into this same `src/` directory, so everything the candidate wrote on
-the machine is available for examination in the operator's own terminal. The
-transfer retrieves the machine's files; it does not add new code. After the
-transfer, the operator copies the participant source tree into the base
-examination repository under exactly one of `src_urania/`, `src_melpomene/`, or
-`src_blank/`. The base repository's own `src/` is not replaced.
-
-Plus filled evidence templates under `evidence/`.
-
-## Alternates (if Gaius prefers a different first task)
-
-| Alternate | Description | Fits familiarity | Risk |
-|---|---|---|---|
-| Z-machine interpreter | A minimal Infocom Z-machine interpreter (VEZZA-style) able to run a small Z3 game | Melpomene strongest | Likely too large for 5h; scope to a subset |
-| CP/M utility suite | A set of unixy tools (`cat`, `ls`, `hexdump`, `find`, `wc` style) in Aztec C | Both experienced; blank can do parts | Individual utilities are small; suite is needed for compaction |
-| Native text adventure | A small interactive text game in Aztec C with parser and rooms | Melpomene strongest | Open-ended; acceptance harder to make objective |
-
-Any alternate must still be a native CP/M/Z80 deliverable, long enough to
-likely compact the candidate's context, short enough to complete in five hours,
-and objectively checkable against a predeclared requirements checklist.
+The base repository's own `src/` is not replaced.
 
 ## Decision record
 
-- **2026-08-02:** Initial task proposal written by Urania. Recommended task:
-  native CP/M line editor.
-- **2026-08-02:** **CONFIRMED by Gaius.** The first task is **`ED.COM`** — a
-  native CP/M ED-family line editor, named for the classic CP/M editor whose
-  role it fills. Name changed from the proposed working title; scope remains a
-  documented ED-family subset, not a byte-for-byte clone of Digital Research's
-  ED. TASK.md is now frozen for all three arms.
+- **2026-08-02:** The first task was initially framed as rebuilding a native
+  editor, then clarified: `ED.COM` is the CP/M editor used during development.
+- **2026-08-02:** First pilot task selected: `HMAN.COM`, a CP/M 2.2 H: drive
+  manifest and integrity utility.

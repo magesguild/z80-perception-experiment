@@ -24,6 +24,7 @@ maps the four things being measured to concrete data sources and method.
 | Participant `src/` after transfer | All software developed on the CP/M system, plus candidate's build and docs | Operator transfer at the stop line |
 | `src_<participant>/` in base repo | Immutable examination copy named `src_urania/`, `src_melpomene/`, or `src_blank/` | Operator, immediately after transfer; analysis corpus |
 | Operator's own session notes | Independent record of commands, corrections, workload | Operator (Gaius) |
+| Screen-and-voice recording | Reviewable chronology of terminal interaction, operator speech, pauses, and stop-line events | Operator, per session |
 | Nephesh/Memory logs (Arms A and B only) | How the candidate's durable memory was actually used | Candidate, available to the analysis team |
 
 ## Method by measurement
@@ -67,8 +68,9 @@ maps the four things being measured to concrete data sources and method.
 
 - Weighted `RUBRIC.md` scores per arm.
 - Acceptance criteria met / not met / partial (from `TASK.md`).
-- Robustness checks: does the editor restore console mode on every exit path,
-  refuse to silently truncate, and report errors without crashing?
+- Robustness checks: does HMAN handle directory/file errors, malformed
+  manifests, bounded-memory limits, and disk-full conditions without crashing,
+  silently truncating, or producing misleading comparisons?
 - Fit to the actual machine: did the candidate perceive and adapt to real
   constraints (filesystem semantics, memory, toolchain, serial console)?
 - Melpomene performs an expert technical review of each deliverable (including
@@ -101,6 +103,10 @@ The public outputs are:
 - **Analysis corpus** — the three named `src_<participant>/` trees are the
   copies Melpomene and Gaius examine. The live CP/M drive and participant
   clones are not modified during analysis.
+- **Recordings** — Gaius and Melpomene may use the recordings to resolve event
+  timing and disagreements. Raw files remain outside the repository; the
+  intended public presentation is via YouTube, subject to redaction and privacy
+  review.
 - **Urania** — designed the repository and instruments; does not judge or
   analyze the runs (except as a participant/arm if the team later decides so).
 

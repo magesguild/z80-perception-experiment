@@ -8,6 +8,11 @@ scc/
 minicom.log
 serial-*.txt
 
+# Session recordings remain outside the public repository.
+*.mp4
+*.mkv
+*.webm
+
 # Python bytecode
 __pycache__/
 *.pyc

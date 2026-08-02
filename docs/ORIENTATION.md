@@ -19,23 +19,20 @@ is the minimum needed to begin working; the curated reference package
 
 ## The toolchain
 
-- **Aztec C** (the Z80 compiler family from the SCC era). The compiler driver is
-  `cz`; an assembler and linker complete the chain. Exact command syntax is in
+- **Aztec C** (the Z80 C compiler family from the SCC era). The compiler driver
+  is `cz`; use the normal Aztec C CP/M build path. Exact command syntax is in
   the compiler manual in the curated reference set (`ref/CURATED_REFS.md`) and
-  must be confirmed on the machine by experiment.
+  must be confirmed on the machine by experiment. Assembly is optional; the
+  blank participant is not required to learn it.
 - Build path style: compile with `cz`, assemble with `as`, link with `ln` to
   produce a `.COM` file. Confirm the real drivers and flags on the machine.
 
 ## The task
 
-- Build **`ED.COM`**, a native CP/M line-oriented text editor in the ED family.
-  Full specification and acceptance criteria: `TASK.md`.
-- **ED** is the classic CP/M line editor. The deliverable is an ED-family
-  editor: its command vocabulary follows ED's, and the candidate documents the
-  exact subset it implements. It is not a byte-for-byte clone of the original;
-  it must be your own code. If the machine has its own ED, it is part of the
-  environment and may be inspected and run as a reference; do not clobber it to
-  test.
+- Build **`HMAN.COM`**, a native CP/M 2.2 H: drive manifest and integrity
+  utility. Full specification and acceptance criteria: `TASK.md`.
+- **ED.COM** is the CP/M line editor used to create source files. It is part of
+  the environment and is not the deliverable.
 
 ## Where to look next
 
