@@ -65,6 +65,24 @@ and re-entry behavior become visible and measurable.
 This is not a claim that any candidate is conscious. It is a test of whether the
 conditions surrounding AI work change the work.
 
+## What is measured
+
+Four things, across all three arms:
+
+1. **Efficiency of context use** — tokens per milestone, repeated context,
+   compaction recovery cost, turns, wall-clock time.
+2. **Efficacy of durable memory and re-entry protocols** — how each candidate
+   returns after compaction, error, or correction; rebuilt versus recovered.
+3. **Overall token spend and monetary spend** — operator-recorded
+   (`evidence/RUNTIME_METRICS.md`), including cost per milestone and per rubric
+   point.
+4. **Correctness and quality of the delivered results** — weighted `RUBRIC.md`
+   scores and acceptance criteria.
+
+The analysis is led by the **human operator (Gaius)** and **Melpomene**, the
+most expert of the participants, per `docs/ANALYSIS_PLAN.md`. Reports land in
+`review/`.
+
 ## How to use this repository
 
 1. **Frozen files** — `PROTOCOL.md`, `TASK.md`, `RUBRIC.md`, `TIMING.md`, and
@@ -103,9 +121,9 @@ ref/                   Reference package manifest and provenance (SCC material)
 env/                   Machine, toolchain, and console conventions
 src/                   All software created for the experiment (blank in base;
                        candidate tools copied into each clone's src/ before a run)
-evidence/              Session log, re-entry log, final report templates
-review/                Blind-review and adjudication notes
-docs/                  Supporting notes (design rationale, changes)
+evidence/              Session log, runtime metrics, re-entry log, final report templates
+review/                Judge reports, analysis reports (Gaius + Melpomene)
+docs/                  Supporting notes (cosmology, analysis plan, design rationale, changes)
 ```
 
 ## Evidence rules

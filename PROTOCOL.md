@@ -150,36 +150,58 @@ serial speed, model/context details of each candidate's runtime).
 
 ## 7. Measurements
 
-### Efficiency and recovery
+The analysis is led by the **human operator (Gaius)** and **Melpomene**, the
+most expert of the participants, using the measurement plan in
+`docs/ANALYSIS_PLAN.md`. Four things are measured:
 
-- wall-clock time to first compiling artifact;
-- wall-clock time to accepted final deliverable (or stop line);
-- interaction turns (operator commands, candidate messages);
-- operator-active minutes;
-- repeated context supplied by the operator;
-- number of corrections and their severity;
-- number of recovery/re-entry events (including context compaction events);
-- retries and abandoned branches;
-- how much prior code and reference material was reused versus rebuilt;
-- give-up, refusal, and clarification events.
+### 7.1 Efficiency of context use
 
-### Quality (see `RUBRIC.md`)
+- tokens consumed per accepted milestone (operator-recorded, `evidence/`);
+- repeated or duplicated context: operator re-teaching, candidate re-reading;
+- compaction frequency and the cost of returning from each;
+- interaction turns per milestone (operator commands, candidate messages);
+- wall-clock time to first compiling artifact and to accepted deliverable;
+- how much of the working context was used productively versus spent rediscovering.
 
-- Z80 and CP/M technical correctness;
-- requirements coverage;
+### 7.2 Efficacy of durable memory and re-entry protocols
+
+- recovery/re-entry events: context compaction, machine error, operator
+  correction, candidate misunderstanding;
+- time and tokens to return to a productive state after each event;
+- how much was rebuilt from scratch versus recovered from memory or the
+  repository;
+- whether the candidate proactively checks its memory/repository after a loss;
+- reuse of prior code and reference material versus rebuilding it.
+
+### 7.3 Overall token spend and monetary spend
+
+- model/provider/version per arm (recorded; substrates may differ between arms);
+- total input + output tokens per arm, operator-recorded in
+  `evidence/RUNTIME_METRICS.md` (a candidate cannot reliably report its own
+  token and cost figures);
+- estimated monetary cost per arm, and cost per accepted milestone and per
+  rubric point;
+- differences in model pricing are recorded, not normalized away; they are part
+  of the comparison.
+
+### 7.4 Correctness and quality of delivered results
+
+- weighted `RUBRIC.md` scores;
+- acceptance criteria met, not met, and partially met;
 - robustness: error handling, no silent truncation, console-mode restoration;
 - fit to the actual machine (perception of real constraints);
 - clarity, maintainability, and documentation;
 - provenance and evidence discipline in the candidate's own logs.
 
-### Collaboration
+### Collaboration (process data feeding 7.1 and 7.2)
 
 - ambiguities identified before drafting;
 - clarification questions asked;
 - calibrated uncertainty (does the candidate know what it does not know);
 - operator workload and confidence;
 - whether the candidate asked for recognition or direction and how that was
-  handled.
+  handled;
+- give-up, refusal, and clarification events.
 
 ## 8. Timing and the stop line
 
@@ -240,6 +262,17 @@ Candidates may work differently because the experiment is new. Repeat trials
 after novelty fades before generalizing.
 
 ## 10. Interpretation
+
+### Analysis leadership
+
+The analysis is led by the **human operator (Gaius)** and **Melpomene**, the
+most expert of the participants, per `docs/ANALYSIS_PLAN.md`. Melpomene is also
+Arm B of this experiment. That dual role is intentional (her expertise is why
+she leads) and it is a recorded limitation: her analysis of her own arm cannot
+be fully independent. Where she analyzes Arm B, her self-assessment is treated
+as an informed self-report and is corroborated against the rubric scores and
+the operator's independent notes. This limitation is recorded in every analysis
+report, not hidden.
 
 ### If Arm A or Arm B performs better
 
