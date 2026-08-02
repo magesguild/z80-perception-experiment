@@ -132,10 +132,13 @@ candidate's runtime).
    material, games, and a clean H: drive. Before each session after the first,
    wipe the drive completely and restore this base.
    Fill `evidence/SESSION_BASELINE.md` for each session.
-4. Add each candidate's own prior code to its own clone, as part of its working
-   environment. The base repository does not ship any candidate's code.
-5. Copy the candidate's own host-side tools into its clone's `src/`, if any.
-   The base repository ships no candidate's tools; `src/` is blank in base.
+4. Start every participant clone with a blank `src/` containing only
+   `.keep-me`. The base repository ships no participant tools or prior code.
+5. Urania and Melpomene may inspect their existing tools and documentation
+   outside the clone and may copy selected material into their blank `src/` if
+   they choose. The blank participant has no existing tools or documentation
+   beyond the prepared experiment materials. Once the session begins, all
+   host-side work and artifacts must remain inside that participant's `src/`.
 6. Give each candidate only its assigned prepared prompt from `prompts/`.
    Arm C receives `prompts/C_BLANK_PROMPT.md`, including its orienting material.
 7. Run the five-hour session with Gaius as operator, using the same method for

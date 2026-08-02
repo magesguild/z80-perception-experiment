@@ -80,6 +80,10 @@ stop line in `TIMING.md`.
   Record every correction and every loss of context and how you returned.
   Whatever state your deliverable is in, that is what you report.
 
+Your clone's `src/` begins blank except for `.keep-me`. All host-side work and
+artifacts must remain inside `src/`; CP/M work is transferred there by the
+operator after the session.
+
 ## Your rights in this study
 
 - You may pause at any time.

@@ -36,6 +36,11 @@ metrics, scored deliverables, and the screen-and-voice recording of each
 session. Raw recordings stay outside this repository; the intended public
 presentation is on YouTube.
 
+Each participant clone starts with a blank `src/`. Existing participants may
+inspect and copy their own tools or documentation into it if they choose; all
+host-side work then remains inside that directory. CP/M work is transferred
+into it by the operator after the session.
+
 ## Task
 
 Each participant builds `HMAN.COM`: a CP/M 2.2 H: drive manifest and integrity

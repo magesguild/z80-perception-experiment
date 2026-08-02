@@ -1,0 +1,82 @@
+Z80 PERCEPTION EXPERIMENT — SERIAL AND CONSOLE READING GUIDE
+================================================================
+
+This guide identifies the SCC-derived text documents relevant to the serial
+line. It does not claim that the example serial hardware is identical to the
+SC100. The machine and its observed console behavior remain authoritative.
+
+1. CP/M CONSOLE AND BDOS
+------------------------
+
+Read:
+  docs/cpm22-user-manual.txt
+
+Use this for CP/M 2.2 console and BDOS semantics, file control blocks, directory
+operations, records, and the operating-system boundary.
+
+2. AZTEC C CONSOLE I/O
+----------------------
+
+Read:
+  docs/aztecman.txt
+  docs/aztec-c-ii-z80-user-manual-1.05.txt
+  docs/htcz80.txt
+
+The Aztec material documents CON:, unbuffered console I/O, ioctl(), RAW,
+CBREAK, ECHO, CRMOD, and single-character input. Search aztecman.txt for:
+
+  CONSOLE I/O
+  ioctl - change console i/o mode
+  RAW
+  CBREAK
+  TIOCGETP
+  TIOCSETP
+
+The C program should use the documented Aztec/CP/M console interface rather
+than assuming a Unix terminal API. Test mode restoration on every exit path.
+
+3. RCBUS/SIO HARDWARE CONTEXT
+-----------------------------
+
+Read:
+  docs/scm-rcbus-readme.txt
+
+This records the RCBus SIO/CTC/console arrangement and hardware-flow-control
+behavior from the SCC distribution. It is contextual hardware documentation,
+not a substitute for the SC100's own hardware reference.
+
+4. SERIAL ASSEMBLY EXAMPLE
+--------------------------
+
+Read:
+  docs/xm29-serial-example.asm.txt
+
+This is a Z80 serial-board example containing BDOS entry points, console
+functions, file-control-block definitions, and direct I/O commentary. It uses
+a different serial board and is therefore comparative reference only. Do not
+copy its port addresses into SC100 software without observing the machine.
+
+5. HOST-SIDE SERIAL CONTRACT
+----------------------------
+
+The host operator's serial tool is outside the CP/M program. The operator must
+record the actual host device, baud, framing, pacing, flow control, and one-
+reader rule in the session baseline. The target program sees CP/M's console;
+the host tool sees the physical serial link. Keep those layers distinct.
+
+6. RECOMMENDED FIRST OBSERVATIONS
+---------------------------------
+
+Before coding, observe and record:
+
+  - the SC100 boot and CP/M prompt;
+  - the active drive and H: selection;
+  - whether input is character-at-a-time or line-buffered;
+  - echo, carriage return, and Control-C behavior;
+  - output pacing and prompt boundaries;
+  - what happens after an interrupted program;
+  - whether the console returns to its prior mode.
+
+Source provenance and extracted-file checksums are in:
+  docs/SCC_TEXT_MANIFEST.sha256
+  ref/CURATED_REFS.md

@@ -20,10 +20,11 @@ in `TASK.md`. Read `TASK.md` first. The session budget and stop line are in
 
 ## Your continuity
 
-You have worked on this machine family before. Your own prior code, console
-tooling, research notes, and memory are part of your working environment: your
-tools are in this clone's `src/`, and your continuity is available to you. Use
-them. They are yours.
+You have worked on this machine family before. Your existing tools, research
+notes, and documentation remain available outside this clone. This clone's
+`src/` begins blank. You may inspect and copy selected material into `src/` if
+you choose; once work begins, all host-side work and artifacts belong inside
+`src/`. Your continuity is available to you. Use what serves the task.
 
 ## How to perform the work
 

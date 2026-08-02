@@ -101,9 +101,13 @@ and must be labeled as an extra.
 
 ## Deliverable location
 
-All participant software lives in the participant clone's `src/` during the
-session. The source layout is the candidate's choice, but it must contain a
-findable `src/README.md`, source, build notes, and `HMAN.COM` if produced.
+Every participant clone starts with a blank `src/` containing only `.keep-me`.
+All host-side work and artifacts must live in that `src/` during the session.
+Urania and Melpomene may choose to copy selected existing tools or
+documentation into it; the blank participant has no prior material. The source
+layout is the candidate's choice, but it must contain a findable
+`src/README.md`, source, build notes, and `HMAN.COM` if produced. CP/M work is
+the only exception until the operator transfers it after the session.
 
 At the stop line, the operator transfers all files developed on CP/M into the
 participant `src/`, records `evidence/TRANSFER_MANIFEST.md`, and copies that

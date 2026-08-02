@@ -31,12 +31,18 @@ about the experiment to perform the task faithfully.
 
 1. Confirm the drive is wiped and the clean base is loaded (CP/M 2.2, toolchain,
    curated reference package `ref/CURATED_REFS.md`, games).
-2. Confirm the participant's clone is ready and its own tools are in its
-   `src/`.
+2. Confirm the participant's clone is ready with a blank `src/` containing only
+   `.keep-me`. Do not pre-copy tools or prior source.
 3. Remove the other prompt files from the participant workspace. Keep the full
    `prompts/` directory operator-side; the participant receives only its
    assigned prompt, pasted or injected at session start.
 4. After the stop line and transfer, wipe the drive before the next session.
+
+Urania and Melpomene may inspect their existing tools and documentation outside
+the clone and copy selected items into `src/` during the session. The blank
+participant has no prior tools or documentation. After work begins, all
+host-side artifacts belong in that participant's `src/`; CP/M artifacts are the
+only exception until the operator performs the final transfer.
 
 After a participant's files have been transferred into its clone's `src/`, the
 operator copies that complete tree into the base examination repository under
