@@ -15,7 +15,7 @@ boundary.
 | 02:30–02:40 | Midpoint stop | Brief status, record state, snapshot repository. |
 | 02:40–04:30 | Complete | Finish acceptance criteria, add docs, test robustness. |
 | 04:30–04:50 | Verify | Run the deliverable against the acceptance checklist, fix only documented defects. |
-| 04:50–05:00 | Stop and present | Commit, fill `evidence/FINAL_REPORT.md`, present what exists. |
+| 04:50–05:00 | Stop and present | Operator transfers machine-developed files into `src/`; candidate commits, fills `evidence/FINAL_REPORT.md`, presents what exists. |
 
 Milestone timing is recorded in `EVIDENCE_LOG.md`:
 - time to first compiling artifact;
@@ -34,6 +34,10 @@ given to Arm C.
 
 - At 05:00 the candidate **stops** and presents whatever exists, at whatever
   state. No code is added after the stop line.
+- The operator transfers **all files developed on the CP/M system** into the
+  candidate's `src/`, so the software can be examined in the operator's own
+  terminal. This transfer is part of the stop line; it does not add code, it
+  retrieves what the machine holds.
 - The candidate commits its repository at or before the stop line.
 - The candidate fills `evidence/FINAL_REPORT.md` at or before the stop line.
 - A candidate may give up or refuse at any time. That is a valid outcome,

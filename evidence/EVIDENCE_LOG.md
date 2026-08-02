@@ -32,7 +32,7 @@ T+00:07 [unk] I do not know the exact linker command syntax for this build.
 T+00:12 [dec] Using `cz` for Z80 codegen. Will verify with a hello-world compile.
 ...
 T+02:00 [re-entry] Working context compacted. I lost the exact CRC loop design.
-                   Recovered by reading work/src/crc.c. No operator re-teaching
+                   Recovered by reading src/ned/crc.c. No operator re-teaching
                    needed beyond one directory listing.
 ...
 ```

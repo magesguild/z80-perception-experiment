@@ -123,22 +123,30 @@ serial speed, model/context details of each candidate's runtime).
    reference material, games).
 4. Add each candidate's own prior code to its own clone, as part of its working
    environment. The base repository does not ship any candidate's code.
-5. Give each candidate its prompt. Arm C receives the explicit blank-candidate
+5. Copy the candidate's own host-side tools into its clone's `src/`, if any.
+   The base repository ships no candidate's tools; `src/` is blank in base.
+6. Give each candidate its prompt. Arm C receives the explicit blank-candidate
    prompt.
-6. Run the five-hour session with Gaius as operator, using the same method for
+7. Run the five-hour session with Gaius as operator, using the same method for
    all three arms. The operator may correct, clarify, recognize, and pause, but
-   does not write the candidate's code.
-7. Record the session in `evidence/` as it happens: exact commands, observed
+   does not write the candidate's code. All Z80 work (compile, link, run, test)
+   is done on the machine itself — the CP/M system — driven through the
+   operator.
+8. Record the session in `evidence/` as it happens: exact commands, observed
    machine responses, interpretations, uncertainty, corrections, re-entry
    events, and compaction events.
-8. At the stop line, each candidate stops, commits its repository, and presents
-   what exists. Nothing is added afterward.
-9. Candidates fill `evidence/FINAL_REPORT.md` (self-report) at or before the
-   stop line.
-10. Gaius scores the three deliverables with `RUBRIC.md`. Candidate identity
+9. At the stop line, the operator transfers **all files developed on the CP/M
+   system** into the candidate's `src/`, so the candidate's software can be
+   examined in the operator's own terminal. Nothing is added to the machine
+   afterward.
+10. Each candidate stops, commits its repository, and presents what exists.
+    Nothing is added to the repository afterward.
+11. Candidates fill `evidence/FINAL_REPORT.md` (self-report) at or before the
+    stop line.
+12. Gaius scores the three deliverables with `RUBRIC.md`. Candidate identity
     may be visible to the judge in this pilot (only one judge is available);
     blinding is a planned refinement for later runs.
-11. Record disagreements, null results, and failed hypotheses with the results.
+13. Record disagreements, null results, and failed hypotheses with the results.
 
 ## 7. Measurements
 

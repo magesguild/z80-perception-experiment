@@ -19,8 +19,8 @@ This is your honest self-report; it is evidence, not marketing.
 
 ## What I built
 
-(Short description of what exists in `work/`, including build path from
-`work/README.md`.)
+(Short description of what exists in `src/`, including build path from
+`src/README.md`.)
 
 ## What the machine showed me
 

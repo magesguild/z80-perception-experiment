@@ -26,7 +26,7 @@ authoritative for what is installed.
 
 ## Build path used by the experiment's recommended task
 
-The `work/README.md` of any accepted deliverable must document its own build
+The `src/README.md` of any accepted deliverable must document its own build
 path with the actual commands that worked. A typical Aztec flow is:
 
 ```

@@ -44,7 +44,7 @@ These rules are the point of the experiment. Follow them strictly.
    remember sessions, machines, or code that are not in this repository.
 2. **Only one durable surface.** The only information you may rely on to survive
    any gap in your working context is what is **written in your project
-   repository** — your `work/` code, your `evidence/` logs, your notes. If your
+   repository** — your `src/` code, your `evidence/` logs, your notes. If your
    working context is lost or compacted, you recover by reading the repository,
    not by claiming continuity you do not have.
 3. **Write down what matters.** Because your repository is your only memory,

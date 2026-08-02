@@ -19,7 +19,7 @@ role it fills. The name is a claim to the role, not to the original
 implementation: the deliverable must be the candidate's own code. Where the
 machine's own `ED.COM` exists in the environment, it is part of the working
 environment and may be inspected and run as reference material; candidates must
-not clobber it to test. Build into the candidate's own work area or drive.
+not clobber it to test. Build into the candidate's own `src/` or drive.
 
 ### Why this task
 
@@ -122,15 +122,31 @@ criteria are met, and must label it clearly as an extra.
 
 ## Deliverable format
 
-On the candidate's `work/` directory, at the stop line:
+All software for the experiment lives under `src/`. In the base repository
+`src/` is blank (it carries a `.keep-me` file so git stores it); the operator
+copies each candidate's own tools into that candidate's clone's `src/` before
+the run. All Z80 compile/link/run/test work is done **on the machine itself**
+(the CP/M system), driven through the operator.
+
+At the stop line, `src/` should contain:
 
 ```
-work/
+src/
   README.md          build steps, command summary, implemented/not-implemented
-  src/               editor source (C and any assembly seams)
-  build/             submit scripts (.SUB) and any build notes
+  ned/               editor source (C and any assembly seams), plus build notes
+  tools/             host-side tooling for working on the machine (transfer,
+                     console, images) and any candidate tools copied in
   ED.COM             the built deliverable, if produced (optional but encouraged)
 ```
+
+The `ned/` and `tools/` subdirectories are conventions, not requirements; the
+candidate may organize `src/` as it sees fit, as long as the build steps, the
+source, and the deliverable are findable and the README explains the layout.
+
+At the stop line, the operator transfers **all files developed on the CP/M
+system** into this same `src/` directory, so everything the candidate wrote on
+the machine is available for examination in the operator's own terminal. The
+transfer retrieves the machine's files; it does not add new code.
 
 Plus filled evidence templates under `evidence/`.
 

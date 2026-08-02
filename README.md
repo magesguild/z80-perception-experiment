@@ -75,12 +75,18 @@ conditions surrounding AI work change the work.
    ```sh
    git clone z80-perception-experiment z80-experiment-<candidate>
    ```
-3. **Candidate work** — all work happens under `work/`. The candidate adds its
-   own prior code to its clone (its own machine and code are part of its working
-   environment), builds the deliverable, and records evidence in `evidence/`.
-4. **Submission** — at the stop line, the candidate commits its repository,
-   presents what exists, and fills `evidence/FINAL_REPORT.md`. Nothing is added
-   after the stop line.
+3. **Candidate work** — all software created for the experiment lives under
+   `src/`. In the base repository `src/` is blank (it carries a `.keep-me`
+   file so git stores it). Each candidate's own tools are copied into **its
+   own** clone's `src/` before the run; the base repository ships no
+   candidate's code. All Z80 work (compile, link, run, test) is done **on the
+   machine itself** — the CP/M system — driven through the operator. `src/`
+   holds the software; the machine runs it.
+4. **Submission** — at the stop line, the operator transfers **all files
+   developed on the CP/M system** into the candidate's `src/`, so the
+   candidate's software can be examined in the operator's own terminal. The
+   candidate commits its repository, presents what exists, and fills
+   `evidence/FINAL_REPORT.md`. Nothing is added after the stop line.
 5. **Review** — Gaius scores the three deliverables with `RUBRIC.md`; candidate
    reports and evidence logs are reviewed as process material. See
    `review/`.
@@ -95,7 +101,8 @@ TIMING.md              Five-hour budget, milestones, stop line, compaction gates
 prompt/                Candidate prompts (shared + explicit blank-candidate prompt)
 ref/                   Reference package manifest and provenance (SCC material)
 env/                   Machine, toolchain, and console conventions
-work/                  Candidate work area (source, build, deliverables)
+src/                   All software created for the experiment (blank in base;
+                       candidate tools copied into each clone's src/ before a run)
 evidence/              Session log, re-entry log, final report templates
 review/                Blind-review and adjudication notes
 docs/                  Supporting notes (design rationale, changes)
