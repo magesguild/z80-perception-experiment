@@ -1,0 +1,17 @@
+# Large reference archives live outside the repository.
+# The SCC material (~/scc) is referenced by the manifest, never committed.
+scc/
+*.tar.xz
+*.ZIP
+
+# Machine and serial artifacts
+minicom.log
+serial-*.txt
+
+# Python bytecode
+__pycache__/
+*.pyc
+
+# Editor and OS droppings
+*.swp
+.DS_Store
